@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home/home';
+import Chatbot from './pages/Chatbot/chatbot';
+import Learn from './pages/Learn/learn'
+import Prayer from './pages/Prayer/prayer'
+// Import other components as needed
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/chatbot" element={<Chatbot />} />
+          <Route path="/learnmore" element={<Learn />} />
+          <Route path="/prayertimes" element={<Prayer />} />
+       
+          {/* Add other routes here */}
+        </Routes>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;

@@ -1,0 +1,102 @@
+/* prayertimes.css */
+.prayer-times-page {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    min-height: 100vh;
+  }
+  
+  .img-container {
+    text-align: center;
+    margin: 1rem 0;
+  }
+  
+  #logo {
+    width: 120px;
+    height: auto;
+  }
+  
+  .navbar {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+  }
+  
+  .navbar .brand-title a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .toggle-button {
+    display: none;
+  }
+  
+  .navbar-links ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .navbar-links li {
+    display: inline;
+    margin-right: 1rem;
+  }
+  
+  .navbar-links a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .city-selector {
+    text-align: center;
+    margin: 1rem 0;
+  }
+  
+  .city-label {
+    font-weight: bold;
+    margin-right: 0.5rem;
+  }
+  
+  #city {
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+  
+  #fetch-times-btn {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    margin-left: 1rem;
+    cursor: pointer;
+  }
+  
+  .prayer-times-container {
+    text-align: center;
+    margin: 2rem 0;
+  }
+  
+  .prayer-times-table {
+    margin: 0 auto;
+    display: inline-block;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 0.5rem;
+    text-align: center;
+  }
+  
+  th {
+    background-color: #f4f4f4;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #333;
+    color: white;
+  }
+  
