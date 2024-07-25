@@ -2,16 +2,29 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './chatbot.css'; // Import the CSS file for Chatbot styling
 import Nav from '../../components/nav/nav';
+import { sendMessageToChatbot } from '../../services/chatService.js'; // Import the service function
 
 const Chatbot = () => {
   const [message, setMessage] = useState('');
+  const [chatOutput, setChatOutput] = useState(''); // State for storing chat replies
+  const [error, setError] = useState('');
 
   const handleInputChange = (e) => setMessage(e.target.value);
-  
-  const handleSubmit = () => {
-    // Handle message send action
-    console.log(message);
-    setMessage(''); // Clear input after sending
+
+  const handleSubmit = async () => {
+    if (message.trim() === '') return; // Prevent sending empty messages
+
+    try {
+      // Send the message to the chatbot service
+      const reply = await sendMessageToChatbot(message);
+      setChatOutput(prevOutput => `${prevOutput}\nUser: ${message}\nBot: ${reply}`);
+      console.log(reply.reply)
+      setMessage(''); // Clear input after sending
+      setError('');
+    } catch (error) {
+      setError(error.message);
+      setChatOutput(prevOutput => `${prevOutput}\nUser: ${message}\nBot: Error occurred`);
+    }
   };
 
   return (
@@ -22,12 +35,16 @@ const Chatbot = () => {
           <a href="/">
             <img id="logo" src="light.jpg" alt="logo" />
           </a>
-        </div>        
+        </div>
       </main>
       
       <fieldset className="chatbot-body">
         <div className="chatbot-container">
-          <div id="chat-output" className="chat-output"></div>
+          <div id="chat-output" className="chat-output">
+            {chatOutput.split('\n').map((line, index) => (
+              <p key={index}>{line}</p>
+            ))}
+          </div>
           <div className="input-container">
             <input
               type="text"
@@ -38,6 +55,7 @@ const Chatbot = () => {
             />
             <button id="button" onClick={handleSubmit}>Send</button>
           </div>
+          {error && <p className="error-message">{error}</p>}
         </div>
       </fieldset>
 
