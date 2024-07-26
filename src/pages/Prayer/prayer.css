@@ -16,36 +16,8 @@
     height: auto;
   }
   
-  .navbar {
-    background-color: #333;
-    color: white;
-    padding: 1rem;
-  }
   
-  .navbar .brand-title a {
-    color: white;
-    text-decoration: none;
-  }
-  
-  .toggle-button {
-    display: none;
-  }
-  
-  .navbar-links ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .navbar-links li {
-    display: inline;
-    margin-right: 1rem;
-  }
-  
-  .navbar-links a {
-    color: white;
-    text-decoration: none;
-  }
-  
+
   .city-selector {
     text-align: center;
     margin: 1rem 0;
