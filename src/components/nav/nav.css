@@ -1,16 +1,22 @@
 /* src/components/Navbar/navbar.css */
-
+* {
+  font-family:'Segoe UI';
+}
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: green !important;
-    padding: 1rem;
+    background-color: #0f3623 !important;
+    padding: 0.5rem !important;
+    margin-bottom: 1px;
+    height: 2rem;
+    border-bottom: 2px solid white;
+    position: relative;
   }
   
   .brand-title {
     color: #fff;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     text-decoration: none;
   }
   
@@ -30,21 +36,76 @@
   .navbar-links ul {
     display: flex;
     list-style: none;
-    padding: 0;
-    margin: 0;
+    padding: 0; 
+    margin: 0; 
   }
   
   .navbar-links li {
+    position: relative; 
     margin: 0 1rem;
   }
   
   .navbar-links a {
-    color: #fff;
+    color: white;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1.25rem;
+    position: relative; /* Needed for the ::after element */
+    
   }
   
-  .navbar-links a:hover {
-    text-decoration: underline;
+  .navbar-links a::after {
+    content: "";
+    position: absolute;
+    bottom: -5px; /* Adjust this value as needed */
+    left: -2px;
+    width: 0%; /* Start with 0% width */
+    height: 2px; /* Adjust the height of the underline */
+    background: white; /* Adjust the color of the underline */
+    border-radius: 30px;
+    transition: width 0.8s ease; /* Smooth transition for width */
+  }
+  
+  .navbar-links a:hover::after,
+  .navbar-links a.active::after {
+    width: 106%; /* Expand to full width on hover and when active */
+  }
+
+  #logo {
+    position: absolute; /* Absolute positioning relative to .navbar */
+     /* Place it just below the navbar */
+    right: 0; /* Align it to the right edge */
+    width: 220px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+    border: 1px solid #e2e2e2; /* Add border if needed */
+    margin-top: -15px; /* Add space between navbar and logo */
+    padding: 0;
+  }
+
+.logo:hover {
+    background-color: #bebebeeb;
+    transition: background-color 0.5s ease;
+}
+
+
+
+
+
+  footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1px;
+    text-align: center;
+    color: #fff;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    background-color: #0f3623 !important;
+    border-top: 1px solid white;
+    font-size: 0.7rem;
+  }
+  footer a {
+    color: #fff;
+    text-decoration: none;
   }
   

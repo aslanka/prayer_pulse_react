@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { fetchPrayerTimes } from '../../services/prayerTimeService.js';
 import './prayer.css'; // Import the CSS file
-import lightLogo from '../../assets/light.jpg'; // Adjust the path if necessary
+//import lightLogo from '../../assets/light.jpg'; // Adjust the path if necessary
 import Nav from '../../components/nav/nav'; // Adjust the path if necessary
 import { convertTimings } from '../../utils/time_conversion.js';
+import Background from '../../assets/black-background.jpg';
 
 const PrayerTimesFetcher = () => {
   const [selectedCity, setSelectedCity] = useState('Charlotte');
@@ -36,24 +37,36 @@ const PrayerTimesFetcher = () => {
   };
 
   return (
+    
     <div className="prayer-times-page">
       <Nav />
 
       <main>
-        <div className="img-container">
-          <a href="/">
-            <img id="logo" src={lightLogo} alt="logo" />
-          </a>
-        </div>
+      
       </main>
 
       <div className="city-selector">
         <label className="city-label" htmlFor="city">Select City &#10141;</label>
         <select id="city" value={selectedCity} onChange={handleCityChange}>
-          <option value="Charlotte">Charlotte</option>
-          <option value="New York">New York</option>
-          <option value="Los Angeles">Los Angeles</option>
-          <option value="Chicago">Chicago</option>
+          <option value="Charlotte">Charlotte, NC</option>
+          <option value="New York">New York, NY</option>
+          <option value="Los Angeles">Los Angeles, CA</option>
+          <option value="San Diego">San Diego, CA</option>
+          <option value="San Jose">San Jose, CA</option>
+          <option value="San Francisco">San Francisco, CA</option>
+          <option value="Phoenix">Phoenix, AZ</option>
+          <option value="Seattle">Seattle, WA</option>
+          <option value="Denver">Denver, CO</option>
+          <option value="Detroit">Detroit, MI</option>
+          <option value="Washington DC">Washington DC</option>
+          <option value="Chicago">Chicago, IL</option>
+          <option value="Houston">Houston, TX</option>
+          <option value="Dallas">Dallas, TX</option>
+          <option value="San Antonio">San Antonio, TX</option>
+          <option value="Austin">Austin, TX</option>
+          <option value="Miami">Miami, FL</option>
+          <option value="Orlando">Orlando, FL</option>
+          <option value="Philadelphia">Philadelphia, PA</option>
           {/* Add more cities as needed */}
         </select>
         <button id="fetch-times-btn" onClick={fetchPrayerTimesData}>Load Prayer Times</button>
@@ -85,10 +98,6 @@ const PrayerTimesFetcher = () => {
           </table>
         </div>
       </div>
-
-      <footer>
-        <p>&copy; 2024 <a href="/">Prayer Pulse.</a> All rights reserved. | &#9993; achught1@uncc.edu | Charlotte, NC 28213</p>
-      </footer>
     </div>
   );
 };

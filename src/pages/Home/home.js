@@ -1,18 +1,47 @@
-// Home.js
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './home.css';
 import Nav from '../../components/nav/nav';
-import alAqsaPic from '../../assets/al-aqsa_pic.jpg';
+import alAqsaPic from '../../assets/al-aqsa_pict.jpg';
+import greenMosque from '../../assets/green-mosque.png';
+
 const Home = () => {
+  const whiteSectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+            observer.unobserve(entry.target); // Optional: Stop observing once it has faded in
+          }
+        });
+      },
+      {
+        threshold: 0.1, // Trigger when 10% of the element is visible
+      }
+    );
+
+    if (whiteSectionRef.current) {
+      observer.observe(whiteSectionRef.current);
+    }
+
+    return () => {
+      if (whiteSectionRef.current) {
+        observer.unobserve(whiteSectionRef.current);
+      }
+    };
+  }, []);
+
   return (
     <div className="homepage">
-     <Nav />
+      <Nav />
 
       <main>
         <div className="img-container">
           <Link to="/">
-            <img id="background-img"  src={alAqsaPic} alt="background-img" />
+            <img id="background-img" src={alAqsaPic} alt="background-img" />
           </Link>
         </div>
       </main>
@@ -62,13 +91,25 @@ const Home = () => {
           </fieldset>
         </div>
       </div>
-
-      <footer>
-        <p>
-          &copy; 2024 <Link to="/">Prayer Pulse.</Link> All rights reserved. | &#9993; achught1@uncc.edu | Charlotte, NC 28213
-        </p>
-      </footer>
-
+      
+      <div ref={whiteSectionRef} className="white-section">
+        <div className="mission">
+          <h2>Welcome to Prayer Pulse: Your Spiritual Companion</h2>
+          <p>
+            At Prayer Pulse, we harmonize faith and technology to elevate your spiritual journey.
+          </p>
+          <p> We are here to guide you on a path where faith and innovation gracefully intertwine to support and inspire your daily devotion.
+          </p>
+          <p>
+          Discover the rhythm of your prayers and converse with our insightful AI assistant.
+          </p>
+        </div>
+        <div className='mission-img'>
+        <img src={greenMosque} alt="Learn" />
+        </div>
+        <h2></h2>
+      </div>
+      
       <div id="modal" className="modal">
         <div className="modal-content">
           <span className="close-button">&times;</span>

@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './learn.css'; // Import your CSS file
-import lightLogo from '../../assets/light.jpg'; // Import your image
+//import lightLogo from '../../assets/light.jpg'; // Import your image
 import boxPic from '../../assets/box.png'; // Import your image
 import campaignPic from '../../assets/campaign.png'; // Import your image
 import searchPic from '../../assets/search.png'; // Import your image
 import Nav from '../../components/nav/nav';
+import Background from '../../assets/black-background.jpg'
+
+
+
 
 const LearnMore = () => {
   const [activeTab, setActiveTab] = useState('Donate');
@@ -19,11 +23,11 @@ const LearnMore = () => {
       <Nav />
 
       <main>
-        <div className="img-container">
-          <Link to="/">
-            <img id="logo" src={lightLogo} alt="logo" />
-          </Link>
-        </div>
+      <div>
+        <Link to="/">
+          <img id="background-img" src={Background} alt="background-img" />
+        </Link>
+      </div>
       </main>
 
       <ul className="tabs">
@@ -120,10 +124,6 @@ const LearnMore = () => {
           </div>
         </div>
       </div>
-
-      <footer>
-        <p>&copy; 2024 <Link to="/">Prayer Pulse.</Link> All rights reserved. | &#9993; achught1@uncc.edu | Charlotte, NC 28213</p>
-      </footer>
     </div>
   );
 };
