@@ -2,7 +2,7 @@
 
 const API_URL = process.env.REACT_APP_API_URL; // Ensure this is defined in your .env file
 const prompt_engineer = "give me responses relevant to islam, if it is not relevant to islam try to relate it back to islam, give me the response in 2-3 sentences, but if the message asks for steps list out bullet points of steps in depth"
-
+console.log(API_URL)
 export const sendMessageToChatbot = async (prompt) => {
   try {
     const response = await fetch(`${API_URL}/chat`, {

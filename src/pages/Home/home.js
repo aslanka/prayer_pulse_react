@@ -35,7 +35,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="homepage">
+    <div className='homepage'>
       <Nav />
 
       <main>

@@ -22,7 +22,7 @@ const Nav = () => {
         <div className="navbar-links">
           <ul>
             <li>
-              <Link to="/" className={currentPath === '/' ? 'active' : ''}>Home</Link>
+              <Link to="/home" className={currentPath === '/' ? 'active' : ''}>Home</Link>
             </li>
             <li>
               <Link to="/chatbot" className={currentPath === '/chatbot' ? 'active' : ''}>PrayerPulse AI</Link>
@@ -37,13 +37,13 @@ const Nav = () => {
         </div>
       </nav>
       <div className="img-container">
-          <Link to="/">
+          <Link to="/home">
             <img id="logo" src={Logo} alt="logo" />
           </Link>
         </div>
       <footer>
         <p>
-          &copy; 2024 <Link to="/">Prayer Pulse.</Link> All rights reserved. | &#9993; achught1@uncc.edu | Charlotte, NC 28213
+          &copy; 2024 <Link to="/home">Prayer Pulse.</Link> All rights reserved. | &#9993; achught1@uncc.edu | Charlotte, NC 28213
         </p>
       </footer>
     </>
